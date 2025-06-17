@@ -1,4 +1,4 @@
-<!-- Page: Campus ECE à Barcelone -->
+<!-- Page d'accueil : barcelone.php -->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -31,67 +31,73 @@
     </style>
 </head>
 <body>
-    <div class="hero text-center">
-        <h1 class="display-4">Campus ECE à Barcelone</h1>
-        <p class="lead">Une expérience vibrante entre culture, soleil et innovation</p>
+
+<div class="hero text-center mt-4">
+    <h1 class="display-4">Campus ECE à Barcelone</h1>
+    <p class="lead">Une expérience vibrante entre culture, soleil et innovation</p>
+</div>
+
+<div class="container">
+    <div class="section-title text-center">
+        <h2 class="text-primary">Pourquoi Barcelone ?</h2>
+        <p>Barcelone allie dynamisme académique, cadre de vie ensoleillé et une riche diversité culturelle pour offrir une expérience inoubliable.</p>
     </div>
 
-    <div class="container">
-        <div class="section-title text-center">
-            <h2 class="text-primary">Pourquoi Barcelone ?</h2>
-            <p>Barcelone allie dynamisme académique, cadre de vie ensoleillé et une riche diversité culturelle pour offrir une expérience inoubliable.</p>
-        </div>
-
-        <div class="row text-center mb-5">
-            <div class="col-md-3">
-                <div class="p-3 bg-light rounded shadow-sm">
-                    🌞 <h5>Climat Méditerranéen</h5>
-                    <p>Soleil presque toute l’année, idéal pour étudier dans la bonne humeur.</p>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="p-3 bg-light rounded shadow-sm">
-                    🏖️ <h5>Plages en ville</h5>
-                    <p>Profitez de la mer après les cours dans un cadre exceptionnel.</p>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="p-3 bg-light rounded shadow-sm">
-                    🏛️ <h5>Richesse culturelle</h5>
-                    <p>Architecture de Gaudí, musées, festivals et traditions vivantes.</p>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="p-3 bg-light rounded shadow-sm">
-                    🌍 <h5>Vie étudiante internationale</h5>
-                    <p>Une ville cosmopolite avec des étudiants venus du monde entier.</p>
-                </div>
+    <div class="row text-center mb-5">
+        <div class="col-md-3">
+            <div class="p-3 bg-light rounded shadow-sm">
+                🌞 <h5>Climat Méditerranéen</h5>
+                <p>Soleil presque toute l’année, idéal pour étudier dans la bonne humeur.</p>
             </div>
         </div>
-
-        <div class="section-title text-center">
-            <h2 class="text-primary">Aperçu en images</h2>
-        </div>
-
-        <div class="row image-grid mb-5">
-            <div class="col-md-4 mb-4">
-                <img src="https://images.unsplash.com/photo-1528909514045-2fa4ac7a08ba?auto=format&fit=crop&w=800&q=80" alt="Vue de Barcelone">
-            </div>
-            <div class="col-md-4 mb-4">
-                <img src="https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?auto=format&fit=crop&w=800&q=80" alt="Plage de Barcelone">
-            </div>
-            <div class="col-md-4 mb-4">
-                <img src="https://images.unsplash.com/photo-1558021212-51b6ecfa0db9?auto=format&fit=crop&w=800&q=80" alt="Étudiants à Barcelone">
+        <div class="col-md-3">
+            <div class="p-3 bg-light rounded shadow-sm">
+                🏖️ <h5>Plages en ville</h5>
+                <p>Profitez de la mer après les cours dans un cadre exceptionnel.</p>
             </div>
         </div>
-
-        <div class="text-center">
-            <a href="accueil.php" class="btn btn-outline-primary btn-lg">⬅ Retour à l'accueil</a>
+        <div class="col-md-3">
+            <div class="p-3 bg-light rounded shadow-sm">
+                🏛️ <h5>Richesse culturelle</h5>
+                <p>Architecture de Gaudí, musées, festivals et traditions vivantes.</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="p-3 bg-light rounded shadow-sm">
+                🌍 <h5>Vie étudiante internationale</h5>
+                <p>Une ville cosmopolite avec des étudiants venus du monde entier.</p>
+            </div>
         </div>
     </div>
 
-    <footer class="text-center">
-        &copy; <?= date('Y') ?> ECE | Campus de Barcelone - Tous droits réservés
-    </footer>
+    <div class="section-title text-center">
+        <h2 class="text-primary">Aperçu en images</h2>
+    </div>
+
+    <div class="row image-grid mb-5">
+        <div class="col-md-4 mb-4">
+            <img src="https://images.unsplash.com/photo-1528909514045-2fa4ac7a08ba?auto=format&fit=crop&w=800&q=80" alt="Vue de Barcelone">
+        </div>
+        <div class="col-md-4 mb-4">
+            <img src="https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?auto=format&fit=crop&w=800&q=80" alt="Plage de Barcelone">
+        </div>
+        <div class="col-md-4 mb-4">
+            <img src="https://images.unsplash.com/photo-1558021212-51b6ecfa0db9?auto=format&fit=crop&w=800&q=80" alt="Étudiants à Barcelone">
+        </div>
+    </div>
+
+    <div class="text-center mb-5">
+        <a href="formulaire.php" class="btn btn-primary btn-lg">Postuler</a>
+    </div>
+    
+    <div class="text-center">
+        <a href="accueil.php" class="btn btn-outline-primary btn-lg">⬅ Retour à l'accueil</a>
+    </div>
+</div>
+
+<footer class="text-center mt-5">
+    &copy; <?php echo date('Y'); ?> ECE | Campus de Barcelone - Tous droits réservés
+</footer>
+
 </body>
 </html>

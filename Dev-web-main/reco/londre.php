@@ -62,8 +62,13 @@
             <div class="col-md-4 mb-4"><img src="https://images.unsplash.com/photo-1565373677869-4de3f39c2e4d?auto=format&fit=crop&w=800&q=80" alt="Université de Londres"></div>
             <div class="col-md-4 mb-4"><img src="https://images.unsplash.com/photo-1535392432937-a27c7f3dd1dd?auto=format&fit=crop&w=800&q=80" alt="Étudiants à Londres"></div>
         </div>
+
+        <div class="text-center mb-5">
+            <a href="formulaire.php" class="btn btn-primary btn-lg">Postuler</a>
+        </div>  
+
         <div class="text-center">
-            <a href="accueil.php" class="btn btn-outline-primary btn-lg">⬅ Retour à l'accueil</a>
+            <a href="destinations.php" class="btn btn-outline-primary btn-lg">⬅ Retour à l'accueil</a>
         </div>
     </div>
     <footer class="text-center">&copy; <?= date('Y') ?> ECE | Campus de Londres - Tous droits réservés</footer>

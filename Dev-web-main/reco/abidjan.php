@@ -107,6 +107,11 @@ session_start();
     </div>
 
     <!-- Bouton retour -->
+
+    <div class="text-center mb-5">
+        <a href="formulaire.php" class="btn btn-primary btn-lg">Postuler</a>
+    </div>
+
     <div class="text-center">
         <a href="accueil.php" class="btn btn-outline-primary btn-lg">⬅ Retour à l'accueil</a>
     </div>
