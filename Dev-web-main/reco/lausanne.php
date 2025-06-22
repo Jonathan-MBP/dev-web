@@ -1,6 +1,9 @@
 <?php
 session_start();
 ?>
+<?php 
+require_once "_menu.php";
+?>
 
 <!DOCTYPE html>
 <html lang="fr">

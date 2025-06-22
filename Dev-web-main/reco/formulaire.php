@@ -1,3 +1,7 @@
+<?php 
+require_once "_menu.php";
+?>
+
 <!-- formulaire.php -->
 <!DOCTYPE html>
 <html lang="fr">

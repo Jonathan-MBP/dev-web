@@ -1,3 +1,7 @@
+<?php 
+require_once "_menu.php";
+?>
+
 <!-- Page d'accueil : barcelone.php -->
 <!DOCTYPE html>
 <html lang="fr">

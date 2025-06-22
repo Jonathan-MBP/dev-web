@@ -1,3 +1,7 @@
+<?php 
+require_once "_menu.php";
+?>
+
 <!-- Page : Campus de Londres -->
 <!DOCTYPE html>
 <html lang="fr">

@@ -1,79 +1,88 @@
 <?php
 session_start();
+require_once "connection.php";
 require_once "_menu.php"; 
 require_once "header.php";
-require_once "connection.php";
-?>
-<body>
-<div class="login-container">
-        <h2>Login</h2>
-        <form action="login.php" method="POST">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required>
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password" required>
-            
-            <button type="submit">Login</button>
-            
-        </form>
-        <?php if (isset($_SESSION['success'])): ?>
-               <div class="alert success">
-                    <strong>✅ Succès :</strong> <?= $_SESSION['success']; unset($_SESSION['success']); ?>
-                </div>
-        <?php endif; ?>
-        <?php
 
-
-
+// Traitement du formulaire de login
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
-    //Connexion à la BDD
-    require_once "connection.php";
+    $email = $_POST['email'] ?? '';
+    $password = $_POST['password'] ?? '';
 
-    //Recupérer valeurs depuis le form
-    $password = $_POST['password'];
-    $email = $_POST['email'];
+    $sql = "SELECT * FROM user WHERE email = :email";
+    $stmt = $connexion->prepare($sql);
+    $stmt->execute([':email' => $email]);
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-
-    //Recherche si user existe
-    $verification = "SELECT * FROM user WHERE email = :email";
-    $stmtVerif = $connexion->prepare($verification);
-    $stmtVerif->execute([
-        ':email' => $email
-    ]);
-    $user = $stmtVerif->fetch(PDO::FETCH_ASSOC);
-
-    if (!$user) {
-        echo "Utilisateur non trouvé";
-        exit(0);
-    }
-    if ($user && password_verify($password, $user['password'])) {
+    if (!$user || !password_verify($password, $user['password'])) {
+        $_SESSION['error'] = "Email ou mot de passe incorrect.";
+    } else {
         $_SESSION['user'] = $user;
         $_SESSION['role'] = $user['role'];
-
+        $_SESSION['success'] = "Connexion réussie !";
         header("Location: index.php");
-        ?>
-        <div class="alert-box success">
-            <strong>✅ Succès :</strong>
-            <ul>Vous êtes connecté</ul>
-        </div>
-        <?php
-    } else {
-        ?>
-        <div class="alert-box error">
-            <strong>❌ Erreur :</strong>
-            <ul><li>Mot de passe ou utilisateur incorrect</li></ul>
-        </div>
-        <?php
         exit();
     }
-    
-
-   
-
 }
-$msg = isset($_GET['msg']) ? $_GET['msg'] : false;
-
 ?>
-    </div>
 
-    
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Connexion</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+
+            <?php if (isset($_SESSION['success'])): ?>
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    ✅ <?= $_SESSION['success']; unset($_SESSION['success']); ?>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+            <?php endif; ?>
+
+            <?php if (isset($_SESSION['error'])): ?>
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    ❌ <?= $_SESSION['error']; unset($_SESSION['error']); ?>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+            <?php endif; ?>
+
+            <div class="card shadow">
+                <div class="card-header text-center">
+                    <h3>Connexion</h3>
+                </div>
+                <div class="card-body">
+                    <form method="POST" action="login.php">
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Adresse email</label>
+                            <input type="email" class="form-control" id="email" name="email" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Mot de passe</label>
+                            <input type="password" class="form-control" id="password" name="password" required>
+                        </div>
+
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary">Se connecter</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer text-center">
+                    <small>Pas encore de compte ? <a href="register.php">S'inscrire</a></small>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

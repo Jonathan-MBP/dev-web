@@ -1,5 +1,7 @@
 <?php
 session_start();
+require_once "_menu.php";
+
 ?>
 
 <!DOCTYPE html>

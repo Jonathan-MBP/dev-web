@@ -1,6 +1,8 @@
 <?php
 session_start();
 require_once "connection.php";
+require_once "_menu.php";
+
 
 if (!isset($_SESSION['user'])) {
     header("Location:login.php?msg=Vous n'êtes pas connecté");
